@@ -4,5 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :associate, optional: true
+  belongs_to :associate
+  accepts_nested_attributes_for :associate
 end
