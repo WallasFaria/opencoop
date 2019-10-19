@@ -19,7 +19,7 @@
     </div>
     <div class="col-md-6 col-lg-6">
       <%= f.input :share_capital, input_html: { class: 'money', type: 'text' } %>
-      <small class=small>&nbsp;Valor mínimo de um salário mínimo: R$998,00</small>
+      <small class=small>&nbsp;Valor máximo de um salário mínimo: R$998,00</small>
     </div>
     <div class="col-md-4 col-lg-4">
       <%= f.input :development_time_in_days %>
@@ -28,7 +28,7 @@
       <%= f.input :value_minimum_to_start, input_html: { class: 'money', type: 'text' }  %>
     </div>
     <div class="col-md-4 col-lg-4">
-      <%= f.input :indicators %>
+      <%= f.input :indicators, input_html: { type: 'text' } %>
     </div>
     <div class="col-md-12 col-lg-12">
       <%= f.input :video_url %>
