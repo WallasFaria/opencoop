@@ -2,7 +2,7 @@ class Withdrawal < Operation
   belongs_to :account
   belongs_to :operable, polymorphic: true
 
-  validates :value, :account, :oprable, :presence
+  validates :value, :account, :operable, presence: true
   validates :value, numericality: { greater_than: 0 }
   validate :available_account_balance
 

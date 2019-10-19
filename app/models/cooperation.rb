@@ -5,6 +5,7 @@ class Cooperation < ApplicationRecord
   has_one :account, as: :owner
 
   validates :share_capital, numericality: { greater_than: 0 }
+  validates :cooperative, uniqueness: { scope: :associate }
 
   def readline?
     true
