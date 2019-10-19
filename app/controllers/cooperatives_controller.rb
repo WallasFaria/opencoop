@@ -66,6 +66,7 @@ class CooperativesController < ApplicationController
         :value_minimum_to_start,
         :indicators,
         :development_time_in_days,
+        :cost_per_transation,
         :share_capital,
         :video_url
       ).merge(founder: current_associate)
