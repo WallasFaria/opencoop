@@ -15,6 +15,7 @@
  */
 
 @import "bootstrap";
+@import "font-awesome";
 
 small{
   font-size: 10px !important;
@@ -32,6 +33,65 @@ a:hover{
   background-color: transparent;
 }
 
-iframe {
-  min-width: 100%;
+.top{
+  position: fixed;
+  background-color:  #4D4D4D;
+  z-index: 99;
+  width: 100%;
+  height: 70px;
+  padding-top: 17px;
+  color: white;
+  margin-top: -60px;
+}
+
+#video{
+  background-image: url('capa.png');
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  width: 100%;
+}
+
+#icon-bar{
+  padding-top: 70px;
+  padding-bottom: 20px;
+  color: #4D4D4D;
+}
+
+#idealizador{
+  background-color: #4D4D4D;
+  height: 300px;
+  clip-path: polygon(0 0, 100% 20%, 100% 57%, 0 100%);
+  color: white;
+  padding-top: 100px;
+  padding-left: 110px;
+}
+
+#idealizador i{
+  font-size: 80px;
+  vertical-align: middle;
+}
+
+#objetivo{
+  color: #4D4D4D;
+  padding: 50px 0;
+}
+
+#objetivo p, #idealizador p{
+  font-size: 17px;
+}
+
+#compartilhar{
+  background-color: #4D4D4D;
+  height: 300px;
+  clip-path: polygon(0 65%, 0 25%, 100% 1%, 100% 100%);
+  text-align: right;
+  color: white;
+  padding-top: 100px;
+  padding-right: 150px;
+}
+
+.btn-perfil{
+  padding: 5px 50px;
 }
