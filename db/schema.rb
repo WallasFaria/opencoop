@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_19_064133) do
+ActiveRecord::Schema.define(version: 2019_10_19_134436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_10_19_064133) do
     t.integer "founder_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "cost_per_transation", precision: 4, scale: 2
     t.index ["segment_id"], name: "index_cooperatives_on_segment_id"
   end
 
