@@ -16,10 +16,10 @@ pt-BR:
     cooperatives: Cooperativas
     description: Descrição
     short_description: Descrição curta
-    minimum_of_associates: Mínimo de associados
-    value_minimum_to_start: Valor mínimo para começar
-    indicators: Indicadores
-    development_time_in_days: Tempo de desenvolvimento em dias
-    share_capital: Capital compartilhado
+    minimum_of_associates: Mínimo de pessoas
+    value_minimum_to_start: Custo do projeto
+    indicators: Estimativa econômica
+    development_time_in_days: Tempo
+    share_capital: Quota parte
     segments: Segmentos
     users: Usuarios

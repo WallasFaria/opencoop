@@ -3,20 +3,44 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :short_description %>
-    <%= f.association :segment %>
-    <%= f.input :minimum_of_associates %>
-    <%= f.input :value_minimum_to_start, input_html: { type: 'text', class: 'money' } %>
-    <%= f.input :indicators %>
-    <%= f.input :development_time_in_days %>
-    <%= f.input :share_capital, input_html: { type: 'text', class: 'money' } %>
-    <%= f.input :video_url %>
-  </div>
+  <div class="form-inputs row">
+    <div class="col-md-12 col-lg-12">
+      <%= f.input :name %>
+    </div>
+    <div class="col-md-12 col-lg-12">
+      <%= f.input :description %>
+    </div>
+    <!-- <%= f.input :short_description %> -->
+    <div class="col-md-12 col-lg-12">
+      <%= f.association :segment %>
+    </div>
+    <div class="col-md-6 col-lg-6">
+      <%= f.input :minimum_of_associates %>
+    </div>
+    <div class="col-md-6 col-lg-6">
+      <%= f.input :share_capital %>
+      <small class=small>&nbsp;Valor mínimo de um salário mínimo: R$998,00</small>
+    </div>
+    <div class="col-md-4 col-lg-4">
+      <%= f.input :development_time_in_days %>
+    </div>
+    <div class="col-md-4 col-lg-4">
+      <%= f.input :value_minimum_to_start %>
+    </div>
+    <div class="col-md-4 col-lg-4">
+      <%= f.input :indicators %>
+    </div>
+    <div class="col-md-12 col-lg-12">
+      <%= f.input :video_url %>
+    </div>
+    <div class="col-md-12 col-lg-12">
+      <input id="aceita" type="checkbox"/>&nbsp;&nbsp;&nbsp;Eu li e concordo com os <a href="javascript:void(0)">termos</a> do estatuto social
+    </div>
+    <!-- <%= f.input :status, placeholder: "Segmentos", label: false %>
+    <%= f.input :founder_id, placeholder: "Segmentos", label: false %> -->
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+    <div class="form-actions col-md-12 col-lg-12">
+      <%= f.button :submit, value: "Salvar", class: 'btn btn-block submit' %>
+    </div>
   </div>
 <% end %>

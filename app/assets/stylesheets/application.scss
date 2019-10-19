@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap";
+
+small{
+  font-size: 10px !important;
+}
+
+.form-group{
+  margin-bottom: 0 !important;
+}
+
+label, .submit{
+  margin-top: 20px;
+}
+
+a:hover{
+  background-color: transparent;
+}
