@@ -3,8 +3,11 @@
 <div class="top">
   <div class="container">
     <div class="row">
+      <div class="col-md-1 white-txt">
+        <%= link_to '<', cooperatives_path %>
+      </div>
       <div class="col-md-6 col-lg-6">
-        <h3><%= @cooperative.name %></h3>
+
       </div>
 
       <div class="col-md-6 col-lg-6 text-right">
@@ -19,7 +22,18 @@
 
 <div id="video">
   <div id="block-video">
+    <div id="conteudo" class="container">
+      <div class="row">
+        <div class="offset-md-1 offset-lg-1 col-md-5 col-lg-5">
+          <h2><%= @cooperative.name %></h2>
+          <h3><%= @cooperative.short_description %></h3>
+        </div>
 
+        <div class="col-md-6 col-lg-6 text-right">
+          <a href="javascript:void(0)"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
   </div>
   <iframe width="100%" height="600px" src="<%= @cooperative.video_url %>"></iframe>
 </div>
@@ -84,7 +98,57 @@
 
 <div id="compartilhar">
   <h3>Ajude a novos investidores a descobrir essa ideia</h3><br>
-  <button type="button" name="button" class="btn btn-light">COMPARTILHAR</button>
+  <!-- <button type="button" name="button" class="btn btn-light">COMPARTILHAR</button> -->
+
+
+  <div class="share-icons-single">
+    <a target="popup" id="share-fb" title="Compartilhar via Facebook">
+      <i class="fa fa-facebook-square fa-2x"></i>
+    </a>
+
+    <a target="popup" id="twitter" title="Compartilhar via Twitter">
+      <i class="fa fa-twitter-square fa-2x"></i>
+    </a>
+
+    <!-- <a href="mailto:?subject=Veja na Jacobin Brasil - <?php echo $title; ?>&body=<?php echo urlencode($link); ?>" title="Compartilhar via email">
+        <img src="<?php p_img(); ?>email_w.png">
+    </a> -->
+
+    <a target="popup" id="whats">
+      <i class="fa fa-whatsapp fa-2x"></i>
+    </a>
+  </div>
+
+  <script type="text/javascript">
+    var url = window.location.href;
+    const name = "<%= @cooperative.name %>";
+    console.log(url);
+
+    $("#share-fb").on('click', function(e){
+      e.preventDefault();
+      window.open('http://www.facebook.com/sharer.php?u=' +url + '&t=' + name,'popup','width=600,height=600');
+      return false;
+    });
+
+    $("#twitter").on('click', function(e){
+      e.preventDefault();
+      window.open('http://twitter.com/share?text=' + encodeURI(name) + '&url=' + encodeURI(url),'popup','width=600,height=600');
+      return false;
+    });
+
+    $("#whats").on('click', function(e){
+      e.preventDefault();
+      window.open('http://api.whatsapp.com/send?text=' + name +' - ' + url,'popup','width=600,height=600');
+      return false;
+    })
+
+  </script>
+
+</div>
+
+<div class="grafico container">
+  <h3 class="text-center">Estimativa Econômica</h3>
+  <canvas id="myChart" height="300"></canvas>
 </div>
 
 <!-- <p>
@@ -145,7 +209,90 @@
 <p>
   <strong>Founder:</strong>
   <%= @cooperative.founder.name %>
-</p> -->
+</p>
+
+<%= link_to 'Editar', edit_cooperative_path(@cooperative) %> |
+
+<script src="../assets/Chart.min.js"></script>
+<script>
+var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+		var config = {
+			type: 'line',
+			data: {
+				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+				datasets: [{
+					label: '',
+					backgroundColor: '#ff0000',
+					borderColor: '#ff0000',
+					data: [
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor()
+					],
+					fill: false,
+				}, {
+					label: '',
+					fill: false,
+					backgroundColor: "#0015ff",
+					borderColor: "#0015ff",
+					data: [
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor()
+					],
+				}]
+			},
+			options: {
+         maintainAspectRatio: false,
+				responsive: true,
+				title: {
+					display: true,
+					text: ''
+				},
+				tooltips: {
+					mode: 'index',
+					intersect: false,
+				},
+				hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+				scales: {
+					xAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Month'
+						}
+					}],
+					yAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Value'
+						}
+					}]
+				}
+			}
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('myChart').getContext('2d');
+			window.myLine = new Chart(ctx, config);
+		};
+
+    function randomScalingFactor(){
+      return Math.floor((Math.random() * 1000) + 1);
+    }
+</script>
 
 <%= link_to 'Edit', edit_cooperative_path(@cooperative) %> |
 <%= link_to 'Back', cooperatives_path %>
