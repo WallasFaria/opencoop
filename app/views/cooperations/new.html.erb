@@ -1,1 +1,46 @@
-<h1>Teste</h1>
+<%= simple_form_for([@cooperative, Cooperation.new]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+<div class="container pagamento">
+  <div class="offset-md-3 offset-lg-3 col-md-6 col-lg-6">
+    <h1>Detalhes do Pagamento</h1>
+
+    <div class="quadro_pagamento">
+      <div class="row">
+        <div class="col-md-6 col-lg-6">
+         <h5>Valor do pagamento</h5>
+        </div>
+
+        <div class="col-md-6 col-lg-6 text-right">
+          <h1><%= number_to_currency @cooperative.share_capital %></h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-inputs row">
+      <div class="col-md-12 col-lg-12">
+        <label for="numero">Número do cartão</label>
+        <input type="text" name="numero" class="form-control" minlength="16" required>
+      </div>
+      <div class="col-md-12 col-lg-12">
+        <label for="numero">Nome do títular</label>
+        <input type="text" name="nome" class="form-control" required>
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <label for="numero">Validade</label>
+        <input type="text" name="validade" class="form-control" required>
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <label for="numero">Cód. de segurança</label>
+        <input type="text" name="seguranca" class="form-control" required>
+      </div>
+
+      <div class="form-actions col-md-12 col-lg-12">
+        <button type="submit" class="btn btn-block submit" name="button">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<% end %>
