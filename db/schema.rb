@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_19_060932) do
+ActiveRecord::Schema.define(version: 2019_10_19_062102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "street"
+    t.string "number"
+    t.string "complement"
+    t.string "zipcode"
+    t.string "neighborhood"
+    t.string "city"
+    t.string "state"
+    t.string "addressable_type", null: false
+    t.bigint "addressable_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id"
+  end
+
+  create_table "associates", force: :cascade do |t|
+    t.string "name"
+    t.string "date_of_birth"
+    t.string "marital_status"
+    t.string "nationality"
+    t.string "profession"
+    t.string "telephone"
+    t.string "cpf"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "segments", force: :cascade do |t|
     t.string "name"
