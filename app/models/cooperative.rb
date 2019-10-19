@@ -1,17 +1,24 @@
 class Cooperative < ApplicationRecord
   enum status: %i[project foundation working]
+  attr_readonly :share_capital
 
   belongs_to :segment
   belongs_to :founder, class_name: 'Associate'
-  has_many :accounts, as: :owner
+  has_many :cooperations, after_add: :update_share_capital
+  has_one :account, as: :owner
 
   before_create :handler_video_url
-  after_create :set_default_status, :create_account
+  after_create :set_default_status, :add_account
 
   private
 
-  def create_account
-    accounts.create(owner: self)
+  def update_share_capital(cooperation)
+    self.share_capital += cooperation.share_capital
+    save
+  end
+
+  def add_account
+    create_account(owner: self)
   end
 
   def set_default_status
