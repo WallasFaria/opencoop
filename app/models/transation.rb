@@ -1,4 +1,4 @@
-class Transation < ApplicationRecord
+class Transaction < ApplicationRecord
   belongs_to :cooperation
   delegate :account, to: :cooperation
 

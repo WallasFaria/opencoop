@@ -12,7 +12,7 @@ class Cooperative < ApplicationRecord
   validates :description,
             :development_time_in_days,
             :share_capital,
-            :cost_per_transation,
+            :cost_per_transaction,
             presence: true
 
   private

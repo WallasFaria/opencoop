@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_19_191415) do
+ActiveRecord::Schema.define(version: 2019_10_19_222307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2019_10_19_191415) do
     t.integer "founder_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.decimal "cost_per_transation", precision: 4, scale: 2
+    t.decimal "cost_per_transaction", precision: 4, scale: 2
     t.index ["segment_id"], name: "index_cooperatives_on_segment_id"
   end
 
@@ -98,13 +98,13 @@ ActiveRecord::Schema.define(version: 2019_10_19_191415) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "transations", force: :cascade do |t|
+  create_table "transactions", force: :cascade do |t|
     t.string "description"
     t.decimal "value", precision: 11, scale: 2
     t.bigint "cooperation_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["cooperation_id"], name: "index_transations_on_cooperation_id"
+    t.index ["cooperation_id"], name: "index_transactions_on_cooperation_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -113,9 +113,9 @@ ActiveRecord::Schema.define(version: 2019_10_19_191415) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.bigint "associate_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "associate_id"
     t.index ["associate_id"], name: "index_users_on_associate_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -125,5 +125,5 @@ ActiveRecord::Schema.define(version: 2019_10_19_191415) do
   add_foreign_key "cooperations", "cooperatives"
   add_foreign_key "cooperatives", "segments"
   add_foreign_key "operations", "accounts"
-  add_foreign_key "transations", "cooperations"
+  add_foreign_key "transactions", "cooperations"
 end
