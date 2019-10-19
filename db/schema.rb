@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_19_062102) do
+ActiveRecord::Schema.define(version: 2019_10_19_062441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,10 +42,29 @@ ActiveRecord::Schema.define(version: 2019_10_19_062102) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "cooperatives", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.text "short_description"
+    t.bigint "segment_id", null: false
+    t.integer "minimum_of_associates"
+    t.decimal "value_minimum_to_start", precision: 11, scale: 2
+    t.text "indicators"
+    t.integer "development_time_in_days"
+    t.decimal "share_capital", precision: 11, scale: 2
+    t.string "video_url"
+    t.integer "status"
+    t.integer "founder_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["segment_id"], name: "index_cooperatives_on_segment_id"
+  end
+
   create_table "segments", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "cooperatives", "segments"
 end

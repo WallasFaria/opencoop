@@ -1,0 +1,24 @@
+
+<%= simple_form_for(@cooperative) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :short_description %>
+    <%= f.association :segment %>
+    <%= f.input :minimum_of_associates %>
+    <%= f.input :value_minimum_to_start %>
+    <%= f.input :indicators %>
+    <%= f.input :development_time_in_days %>
+    <%= f.input :share_capital %>
+    <%= f.input :video_url %>
+    <%= f.input :status %>
+    <%= f.input :founder_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

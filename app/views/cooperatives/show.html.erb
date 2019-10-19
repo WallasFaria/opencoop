@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cooperative.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @cooperative.description %>
+</p>
+
+<p>
+  <strong>Short description:</strong>
+  <%= @cooperative.short_description %>
+</p>
+
+<p>
+  <strong>Segment:</strong>
+  <%= @cooperative.segment_id %>
+</p>
+
+<p>
+  <strong>Minimum of associates:</strong>
+  <%= @cooperative.minimum_of_associates %>
+</p>
+
+<p>
+  <strong>Value minimum to start:</strong>
+  <%= @cooperative.value_minimum_to_start %>
+</p>
+
+<p>
+  <strong>Indicators:</strong>
+  <%= @cooperative.indicators %>
+</p>
+
+<p>
+  <strong>Development time in days:</strong>
+  <%= @cooperative.development_time_in_days %>
+</p>
+
+<p>
+  <strong>Share capital:</strong>
+  <%= @cooperative.share_capital %>
+</p>
+
+<p>
+  <strong>Video url:</strong>
+  <%= @cooperative.video_url %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @cooperative.status %>
+</p>
+
+<p>
+  <strong>Founder:</strong>
+  <%= @cooperative.founder_id %>
+</p>
+
+<%= link_to 'Edit', edit_cooperative_path(@cooperative) %> |
+<%= link_to 'Back', cooperatives_path %>
