@@ -1,0 +1,25 @@
+pt-BR:
+  attributes:
+    street: Rua
+    number: Número
+    complement: Complemento
+    zipcode: Cep
+    neighborhood: Bairro
+    city: Cidade
+    state: Estado
+    name: Nome
+    date_of_birth: Data de nascimento
+    marital_status: Estado civil
+    nationality: Nacionalidade
+    profession: Profissão
+    telephone: Telefone
+    cooperatives: Cooperativas
+    description: Descrição
+    short_description: Descrição curta
+    minimum_of_associates: Mínimo de associados
+    value_minimum_to_start: Valor mínimo para começar
+    indicators: Indicadores
+    development_time_in_days: Tempo de desenvolvimento em dias
+    share_capital: Capital compartilhado
+    segments: Segmentos
+    users: Usuarios
