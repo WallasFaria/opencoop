@@ -1,4 +1,6 @@
 pt-BR:
+  attributes:
+    segment: Segmento
   activerecord:
     errors:
       messages:
