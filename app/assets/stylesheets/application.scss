@@ -134,3 +134,25 @@ a:hover{
   color: white;
   font-size: 18px;
 }
+
+.white-txt a:hover{
+  text-decoration: none;
+  color: lightgray
+}
+
+.share-icons-single a{
+  margin-right: 15px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.share-icons-single a i{
+  color: orange;
+}
+
+.share-icons-single a:hover i{
+  color: darkorange
+}
+
+
+
