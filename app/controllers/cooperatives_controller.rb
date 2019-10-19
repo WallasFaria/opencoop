@@ -1,34 +1,27 @@
 class CooperativesController < ApplicationController
   before_action :set_cooperative, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
-  # GET /cooperatives
-  # GET /cooperatives.json
   def index
     @cooperatives = Cooperative.all
   end
 
-  # GET /cooperatives/1
-  # GET /cooperatives/1.json
   def show
   end
 
-  # GET /cooperatives/new
   def new
     @cooperative = Cooperative.new
   end
 
-  # GET /cooperatives/1/edit
   def edit
   end
 
-  # POST /cooperatives
-  # POST /cooperatives.json
   def create
     @cooperative = Cooperative.new(cooperative_params)
 
     respond_to do |format|
       if @cooperative.save
-        format.html { redirect_to @cooperative, notice: 'Cooperative was successfully created.' }
+        format.html { redirect_to @cooperative, notice: 'Cooperativa criada com sucesso.' }
         format.json { render :show, status: :created, location: @cooperative }
       else
         format.html { render :new }
@@ -37,12 +30,10 @@ class CooperativesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /cooperatives/1
-  # PATCH/PUT /cooperatives/1.json
   def update
     respond_to do |format|
       if @cooperative.update(cooperative_params)
-        format.html { redirect_to @cooperative, notice: 'Cooperative was successfully updated.' }
+        format.html { redirect_to @cooperative, notice: 'Cooperativa atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @cooperative }
       else
         format.html { render :edit }
@@ -51,23 +42,19 @@ class CooperativesController < ApplicationController
     end
   end
 
-  # DELETE /cooperatives/1
-  # DELETE /cooperatives/1.json
   def destroy
     @cooperative.destroy
     respond_to do |format|
-      format.html { redirect_to cooperatives_url, notice: 'Cooperative was successfully destroyed.' }
+      format.html { redirect_to cooperatives_url, notice: 'Cooperativa removida com sucesso.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_cooperative
       @cooperative = Cooperative.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def cooperative_params
       params.require(:cooperative).permit(:name, :description, :short_description, :segment_id, :minimum_of_associates, :value_minimum_to_start, :indicators, :development_time_in_days, :share_capital, :video_url, :status, :founder_id)
     end
