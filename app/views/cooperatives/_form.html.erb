@@ -9,13 +9,11 @@
     <%= f.input :short_description %>
     <%= f.association :segment %>
     <%= f.input :minimum_of_associates %>
-    <%= f.input :value_minimum_to_start %>
+    <%= f.input :value_minimum_to_start, input_html: { type: 'text', class: 'money' } %>
     <%= f.input :indicators %>
     <%= f.input :development_time_in_days %>
-    <%= f.input :share_capital %>
+    <%= f.input :share_capital, input_html: { type: 'text', class: 'money' } %>
     <%= f.input :video_url %>
-    <%= f.input :status %>
-    <%= f.input :founder_id %>
   </div>
 
   <div class="form-actions">

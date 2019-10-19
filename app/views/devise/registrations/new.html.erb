@@ -5,18 +5,18 @@
 
   <%= f.simple_fields_for(:associate) do |f_associate| %>
     <%= f_associate.input :name %>
-    <%= f_associate.input :cpf %>
-    <%= f_associate.input :date_of_birth %>
+    <%= f_associate.input :cpf, input_html: { class: 'cpf' } %>
+    <%= f_associate.input :date_of_birth, input_html: { class: 'date' } %>
     <%= f_associate.input :marital_status %>
     <%= f_associate.input :nationality %>
     <%= f_associate.input :profession %>
-    <%= f_associate.input :telephone %>
+    <%= f_associate.input :telephone, input_html: { class: 'phone_with_ddd' } %>
 
     <%= f_associate.simple_fields_for(:address) do |f_address| %>
       <%= f_address.input :street %>
       <%= f_address.input :number %>
       <%= f_address.input :complement %>
-      <%= f_address.input :zipcode %>
+      <%= f_address.input :zipcode, input_html: { class: 'cep' } %>
       <%= f_address.input :neighborhood %>
       <%= f_address.input :city %>
       <%= f_address.input :state %>
