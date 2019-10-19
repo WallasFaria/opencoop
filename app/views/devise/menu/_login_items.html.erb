@@ -1,9 +1,9 @@
 <% if user_signed_in? %>
-  <li>
+  <li class="nav-item nav-link">
   <%= link_to('Sair', destroy_user_session_path, method: :delete) %>
   </li>
 <% else %>
-  <li>
+  <li class="nav-item nav-link ">
   <%= link_to('Entrar', new_user_session_path) %>
   </li>
 <% end %>
