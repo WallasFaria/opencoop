@@ -11,13 +11,16 @@
         <button type="button" name="button" class="btn btn-light btn-perfil">QUERO ME ASSOCIAR</button>
       </div>
 
-      <%= render 'devise/menu/login_items' %>
+      <!-- <%= render 'devise/menu/login_items' %> -->
     </div>
   </div>
 </div>
 
 <div id="video">
-  
+  <div id="block-video">
+
+  </div>
+  <iframe width="100%" height="600px" src="<%= @cooperative.video_url %>"></iframe>
 </div>
 
 <div id="icon-bar">

@@ -45,12 +45,20 @@ a:hover{
 }
 
 #video{
-  background-image: url('capa.png');
-  background-repeat: none;
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
   height: 400px;
   width: 100%;
+}
+
+#block-video{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+#video iframe{
+  border: 0;
+  margin-top: -100px;
 }
 
 #icon-bar{

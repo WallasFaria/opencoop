@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_10_19_144648) do
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
-    t.decimal "balance", precision: 20, scale: 4
+    t.decimal "balance", precision: 20, scale: 4, default: "0.0"
     t.string "owner_type"
     t.bigint "owner_id"
     t.datetime "created_at", precision: 6, null: false
@@ -94,9 +94,9 @@ ActiveRecord::Schema.define(version: 2019_10_19_144648) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.bigint "associate_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "associate_id"
     t.index ["associate_id"], name: "index_users_on_associate_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
