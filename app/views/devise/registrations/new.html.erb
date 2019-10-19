@@ -5,6 +5,7 @@
 
   <%= f.simple_fields_for(:associate) do |f_associate| %>
     <%= f_associate.simple_fields_for(:address) do |f_address| %>
+      <div class="container">
         <div class="row">
           <div class="col-md-6 col-lg-6">
             <h3>informações Pessoais</h3>
@@ -60,12 +61,13 @@
             <%= f_associate.input :telephone, input_html: { class: 'phone_with_ddd' } %>
           </div>
           <div class="col-md-6 col-lg-6">
-            
+
           </div>
           <div class="col-md-6 col-lg-6">
             <%= f_associate.input :profession %>
           </div>
         </div>
+      </div>
     <% end %>
   <% end %>
 <% end %>

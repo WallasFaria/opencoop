@@ -17,6 +17,7 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "devise";
+@import "Chart";
 
 small{
   font-size: 10px !important;
@@ -49,12 +50,27 @@ a:hover{
   overflow: hidden;
   height: 400px;
   width: 100%;
+
 }
 
 #block-video{
   position: absolute;
   height: 100%;
   width: 100%;
+  -webkit-box-shadow: inset -2px -200px 60px -60px rgba(0,0,0,0.6);
+     -moz-box-shadow: inset -2px -200px 60px -60px rgba(0,0,0,0.6);
+          box-shadow: inset -2px -200px 60px -60px rgba(0,0,0,0.6);
+  margin-top: -223px;
+}
+
+#block-video #conteudo{
+  color: white;
+  position: absolute;
+  bottom: 20px;
+}
+#block-video a{
+  color: white;
+  font-size: 35px;
 }
 
 #video iframe{
@@ -103,4 +119,8 @@ a:hover{
 
 .btn-perfil{
   padding: 5px 50px;
+}
+
+#grafico{
+
 }
