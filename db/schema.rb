@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_19_144648) do
+ActiveRecord::Schema.define(version: 2019_10_19_191415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(version: 2019_10_19_144648) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "cooperations", force: :cascade do |t|
+    t.bigint "cooperative_id", null: false
+    t.bigint "associate_id", null: false
+    t.decimal "share_capital", precision: 11, scale: 2, default: "0.0"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["associate_id"], name: "index_cooperations_on_associate_id"
+    t.index ["cooperative_id"], name: "index_cooperations_on_cooperative_id"
+  end
+
   create_table "cooperatives", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -60,7 +70,7 @@ ActiveRecord::Schema.define(version: 2019_10_19_144648) do
     t.decimal "value_minimum_to_start", precision: 11, scale: 2
     t.text "indicators"
     t.integer "development_time_in_days"
-    t.decimal "share_capital", precision: 11, scale: 2
+    t.decimal "share_capital", precision: 11, scale: 2, default: "0.0"
     t.string "video_url"
     t.integer "status"
     t.integer "founder_id"
@@ -88,6 +98,15 @@ ActiveRecord::Schema.define(version: 2019_10_19_144648) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "transations", force: :cascade do |t|
+    t.string "description"
+    t.decimal "value", precision: 11, scale: 2
+    t.bigint "cooperation_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cooperation_id"], name: "index_transations_on_cooperation_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -102,6 +121,9 @@ ActiveRecord::Schema.define(version: 2019_10_19_144648) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cooperations", "associates"
+  add_foreign_key "cooperations", "cooperatives"
   add_foreign_key "cooperatives", "segments"
   add_foreign_key "operations", "accounts"
+  add_foreign_key "transations", "cooperations"
 end

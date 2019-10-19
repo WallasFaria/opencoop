@@ -121,6 +121,16 @@ a:hover{
   padding: 5px 50px;
 }
 
-#grafico{
+.btn-gray, .gray-form .btn{
+  background-color: #4d4d4d;
+  color: #fff
+}
 
+.form-control{
+  border-radius: 0
+}
+
+.white-txt a{
+  color: white;
+  font-size: 18px;
 }

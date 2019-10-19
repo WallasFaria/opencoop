@@ -1,75 +1,101 @@
-<h1><%= t('.sign_up') %></h1>
+<div class="container gray-form mt-4">
+  <h1><%= t('.sign_up') %></h1>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= bootstrap_devise_error_messages! %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= bootstrap_devise_error_messages! %>
 
-  <%= f.simple_fields_for(:associate) do |f_associate| %>
-    <%= f_associate.simple_fields_for(:address) do |f_address| %>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-6">
-            <h3>informações Pessoais</h3>
-          </div>
-          <div class="col-md-6 col-lg-6">
-            <h3>Endereço</h3>
-          </div>
-          <div class="col-md-6 col-lg-6">
-            <%= f_associate.input :name %>
-          </div>
-          <div class="col-md-4 col-lg-4">
-            <%= f_address.input :street %>
-          </div>
-          <div class="col-md-2 col-lg-2">
-            <%= f_address.input :number %>
-          </div>
-          <div class="col-md-6 col-lg-6">
-            <%= f.input :email %>
-          </div>
-          <div class="col-md-3 col-lg-3">
-            <%= f_address.input :neighborhood %>
-          </div>
-          <div class="col-md-3 col-lg-3">
-            <%= f_address.input :city %>
-          </div>
-          <div class="col-md-3 col-lg-3">
-            <%= f.input :password %>
-          </div>
-          <div class="col-md-3 col-lg-3">
-            <%= f.input :password_confirmation %>
-          </div>
-          <div class="col-md-3 col-lg-3">
-            <%= f_address.input :state %>
-          </div>
-          <div class="col-md-3 col-lg-3">
-            <%= f_address.input :zipcode, input_html: { class: 'cep' } %>
-          </div>
-          <div class="col-md-3 col-lg-3">
-            <%= f_associate.input :marital_status %>
-          </div>
-          <div class="col-md-3 col-lg-3">
-            <%= f_associate.input :cpf, input_html: { class: 'cpf' } %>
-          </div>
-          <div class="col-md-6 col-lg-6">
-            <div class="form-group">
-              <br><br> <%= f.submit t('.sign_up'), class: 'btn btn-block' %>
+    <%= f.simple_fields_for(:associate) do |f_associate| %>
+      <%= f_associate.simple_fields_for(:address) do |f_address| %>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col">
+                  <h3>informações Pessoais</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <%= f_associate.input :name %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <%= f.input :email %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <%= f.input :password %>
+                </div>
+                <div class="col-md-6">
+                  <%= f.input :password_confirmation %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-lg-6">
+                  <%= f_associate.input :marital_status %>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                  <%= f_associate.input :cpf, input_html: { class: 'cpf' } %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-lg-6">
+                  <%= f_associate.input :date_of_birth, input_html: { class: 'date' } %>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                  <%= f_associate.input :telephone, input_html: { class: 'phone_with_ddd' } %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="col">
+                <h3>Endereço</h3>
+              </div>
+              <div class="row">
+                <div class="col-md-9 col-lg-9">
+                  <%= f_address.input :street %>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                  <%= f_address.input :number %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-lg-6">
+                  <%= f_address.input :neighborhood %>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                  <%= f_address.input :city %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-lg-6">
+                  <%= f_address.input :state %>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                  <%= f_address.input :zipcode, input_html: { class: 'cep' } %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <%= f_associate.input :profession %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <br><br> <%= f.submit t('.sign_up'), class: 'btn btn-block' %>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-md-3 col-lg-3">
-            <%= f_associate.input :date_of_birth, input_html: { class: 'date' } %>
-          </div>
-          <div class="col-md-3 col-lg-3">
-            <%= f_associate.input :telephone, input_html: { class: 'phone_with_ddd' } %>
-          </div>
-          <div class="col-md-6 col-lg-6">
-
-          </div>
-          <div class="col-md-6 col-lg-6">
-            <%= f_associate.input :profession %>
-          </div>
-        </div>
-      </div>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
 
-<%= render 'devise/shared/links' %>
+<!--   <div class="mt-4 mb-4">
+    <%= render 'devise/shared/links' %>
+  </div> -->
+</div>
+<div class="gray-bar"></div>
