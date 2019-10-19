@@ -4,32 +4,70 @@
   <%= bootstrap_devise_error_messages! %>
 
   <%= f.simple_fields_for(:associate) do |f_associate| %>
-    <%= f_associate.input :name %>
-    <%= f_associate.input :cpf, input_html: { class: 'cpf' } %>
-    <%= f_associate.input :date_of_birth, input_html: { class: 'date' } %>
-    <%= f_associate.input :marital_status %>
-    <%= f_associate.input :nationality %>
-    <%= f_associate.input :profession %>
-    <%= f_associate.input :telephone, input_html: { class: 'phone_with_ddd' } %>
-
     <%= f_associate.simple_fields_for(:address) do |f_address| %>
-      <%= f_address.input :street %>
-      <%= f_address.input :number %>
-      <%= f_address.input :complement %>
-      <%= f_address.input :zipcode, input_html: { class: 'cep' } %>
-      <%= f_address.input :neighborhood %>
-      <%= f_address.input :city %>
-      <%= f_address.input :state %>
+        <div class="row">
+          <div class="col-md-6 col-lg-6">
+            <h3>informações Pessoais</h3>
+          </div>
+          <div class="col-md-6 col-lg-6">
+            <h3>Endereço</h3>
+          </div>
+          <div class="col-md-6 col-lg-6">
+            <%= f_associate.input :name %>
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <%= f_address.input :street %>
+          </div>
+          <div class="col-md-2 col-lg-2">
+            <%= f_address.input :number %>
+          </div>
+          <div class="col-md-6 col-lg-6">
+            <%= f.input :email %>
+          </div>
+          <div class="col-md-3 col-lg-3">
+            <%= f_address.input :neighborhood %>
+          </div>
+          <div class="col-md-3 col-lg-3">
+            <%= f_address.input :city %>
+          </div>
+          <div class="col-md-3 col-lg-3">
+            <%= f.input :password %>
+          </div>
+          <div class="col-md-3 col-lg-3">
+            <%= f.input :password_confirmation %>
+          </div>
+          <div class="col-md-3 col-lg-3">
+            <%= f_address.input :state %>
+          </div>
+          <div class="col-md-3 col-lg-3">
+            <%= f_address.input :zipcode, input_html: { class: 'cep' } %>
+          </div>
+          <div class="col-md-3 col-lg-3">
+            <%= f_associate.input :marital_status %>
+          </div>
+          <div class="col-md-3 col-lg-3">
+            <%= f_associate.input :cpf, input_html: { class: 'cpf' } %>
+          </div>
+          <div class="col-md-6 col-lg-6">
+            <div class="form-group">
+              <br><br> <%= f.submit t('.sign_up'), class: 'btn btn-block' %>
+            </div>
+          </div>
+          <div class="col-md-3 col-lg-3">
+            <%= f_associate.input :date_of_birth, input_html: { class: 'date' } %>
+          </div>
+          <div class="col-md-3 col-lg-3">
+            <%= f_associate.input :telephone, input_html: { class: 'phone_with_ddd' } %>
+          </div>
+          <div class="col-md-6 col-lg-6">
+            
+          </div>
+          <div class="col-md-6 col-lg-6">
+            <%= f_associate.input :profession %>
+          </div>
+        </div>
     <% end %>
   <% end %>
-
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
-
-  <div class="form-group">
-    <%= f.submit t('.sign_up'), class: 'btn btn-primary' %>
-  </div>
 <% end %>
 
 <%= render 'devise/shared/links' %>
