@@ -9,6 +9,11 @@ class Cooperative < ApplicationRecord
 
   before_create :handler_video_url
   after_create :set_default_status, :add_account
+  validates :description,
+            :development_time_in_days,
+            :share_capital,
+            :cost_per_transation,
+            presence: true
 
   private
 
