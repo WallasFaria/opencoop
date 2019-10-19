@@ -1,9 +1,9 @@
 class CooperativesController < ApplicationController
   before_action :set_cooperative, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:show]
 
   def index
-    @cooperatives = Cooperative.all
+    @cooperatives = current_associate.cooperatives
   end
 
   def show
@@ -56,6 +56,17 @@ class CooperativesController < ApplicationController
     end
 
     def cooperative_params
-      params.require(:cooperative).permit(:name, :description, :short_description, :segment_id, :minimum_of_associates, :value_minimum_to_start, :indicators, :development_time_in_days, :share_capital, :video_url, :status, :founder_id)
+      params.require(:cooperative).permit(
+        :name,
+        :description,
+        :short_description,
+        :segment_id,
+        :minimum_of_associates,
+        :value_minimum_to_start,
+        :indicators,
+        :development_time_in_days,
+        :share_capital,
+        :video_url
+      ).merge(founder: current_associate)
     end
 end
