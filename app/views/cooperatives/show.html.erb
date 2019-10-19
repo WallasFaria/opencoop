@@ -1,6 +1,89 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div class="top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-lg-6">
+        <h3><%= @cooperative.name %></h3>
+      </div>
+
+      <div class="col-md-6 col-lg-6 text-right">
+        <button type="button" name="button" class="btn btn-light btn-perfil">QUERO ME ASSOCIAR</button>
+      </div>
+
+      <%= render 'devise/menu/login_items' %>
+    </div>
+  </div>
+</div>
+
+<div id="video">
+  
+</div>
+
+<div id="icon-bar">
+  <div class="row">
+    <div class="col-md-4 col-lg-4 text-center">
+      <h2><i class="fa fa-users" aria-hidden="true"></i></h2>
+      <p>ASSOCIADOS</p>
+      <h3>05</h3>
+    </div>
+
+    <div class="col-md-4 col-lg-4 text-center">
+      <h2><i class="fa fa-money" aria-hidden="true"></i></h2>
+      <p>ARRECADADO</p>
+      <h3>2.700,00</h3>
+    </div>
+
+    <div class="col-md-4 col-lg-4 text-center">
+      <h2><i class="fa fa-handshake-o" aria-hidden="true"></i></h2>
+      <p>QUOTA-PARTES</p>
+      <h3><%= @cooperative.share_capital %></h3>
+    </div>
+  </div>
+</div>
+
+<div id="idealizador">
+  <p> <strong>Idelizador(a)</strong> </p>
+  <h1><i class="fa fa-user-circle" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;<%= @cooperative.founder.name %></h1>
+</div>
+
+<div id="objetivo" class="container">
+  <div class="row">
+    <div class="col-md-9 col-lg-9">
+      <h3>Objetivo</h3>
+      <p class="text-justify"><%= @cooperative.description %></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2 col-lg-2">
+      <p> <strong>Segmento</strong> </p>
+      <p><%= @cooperative.segment.name %></p>
+    </div>
+
+    <div class="col-md-2 col-lg-2">
+      <p> <strong>Mínimo de pessoas</strong> </p>
+      <p><%= @cooperative.minimum_of_associates %></p>
+    </div>
+
+    <div class="col-md-2 col-lg-2">
+      <p> <strong>Custo da fundação</strong> </p>
+      <p>R$<%= @cooperative.value_minimum_to_start %></p>
+    </div>
+
+    <div class="col-md-3 col-lg-3">
+      <p> <strong>Tempo de desenvolvimento</strong> </p>
+      <p><%= @cooperative.development_time_in_days %></p>
+    </div>
+  </div>
+</div>
+
+<div id="compartilhar">
+  <h3>Ajude a novos investidores a descobrir essa ideia</h3><br>
+  <button type="button" name="button" class="btn btn-light">COMPARTILHAR</button>
+</div>
+
+<!-- <p>
   <strong>Name:</strong>
   <%= @cooperative.name %>
 </p>
@@ -57,8 +140,8 @@
 
 <p>
   <strong>Founder:</strong>
-  <%= @cooperative.founder_id %>
-</p>
+  <%= @cooperative.founder.name %>
+</p> -->
 
 <%= link_to 'Edit', edit_cooperative_path(@cooperative) %> |
 <%= link_to 'Back', cooperatives_path %>

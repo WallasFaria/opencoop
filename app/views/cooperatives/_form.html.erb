@@ -18,14 +18,14 @@
       <%= f.input :minimum_of_associates %>
     </div>
     <div class="col-md-6 col-lg-6">
-      <%= f.input :share_capital %>
+      <%= f.input :share_capital, input_html: { class: 'money', type: 'text' } %>
       <small class=small>&nbsp;Valor mínimo de um salário mínimo: R$998,00</small>
     </div>
     <div class="col-md-4 col-lg-4">
       <%= f.input :development_time_in_days %>
     </div>
     <div class="col-md-4 col-lg-4">
-      <%= f.input :value_minimum_to_start %>
+      <%= f.input :value_minimum_to_start, input_html: { class: 'money', type: 'text' }  %>
     </div>
     <div class="col-md-4 col-lg-4">
       <%= f.input :indicators %>
@@ -34,7 +34,7 @@
       <%= f.input :video_url %>
     </div>
     <div class="col-md-12 col-lg-12">
-      <input id="aceita" type="checkbox"/>&nbsp;&nbsp;&nbsp;Eu li e concordo com os <a href="javascript:void(0)">termos</a> do estatuto social
+      <br><br><input id="aceita" type="checkbox"/>&nbsp;&nbsp;&nbsp;Eu li e concordo com os <a href="javascript:void(0)">termos</a> do estatuto social
     </div>
     <!-- <%= f.input :status, placeholder: "Segmentos", label: false %>
     <%= f.input :founder_id, placeholder: "Segmentos", label: false %> -->

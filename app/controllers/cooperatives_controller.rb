@@ -7,6 +7,7 @@ class CooperativesController < ApplicationController
   end
 
   def show
+    render layout: "cooperative"
   end
 
   def new
