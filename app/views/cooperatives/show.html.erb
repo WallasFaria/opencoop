@@ -1,21 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<!-- <div class="top">
-  <div class="container">
-    <div class="row">
-
-
-      <div class="col-md-6 col-lg-6">
-        <img src="<%= image_path 'Voe.png' %>" alt="Logomarca">
-      </div>
-
-      <div class="col-md-6 col-lg-6 text-right">
-        <%= link_to 'QUERO ME ASSOCIAR', new_cooperative_cooperation_path(@cooperative),
-                    class: 'btn btn-light btn-perfil' %>
-      </div>
-    </div>
-  </div>
-</div> -->
+<p id="notice" class="notice alert alert-success"><%= notice %></p>
 
 <div id="video">
 
@@ -23,7 +6,7 @@
     <div id='top' class="container">
       <div class="row">
         <div class="col-md-6 col-lg-6">
-          <img src="<%= image_path 'Voe.png' %>" alt="Logomarca">
+          <a href="/"><img src="<%= image_path 'Voe.png' %>" alt="Logomarca"></a>
         </div>
 
         <div class="col-md-6 col-lg-6 text-right">
@@ -35,13 +18,13 @@
     <div id="conteudo" class="container">
       <div class="row">
         <div class="offset-md-1 offset-lg-1 col-md-5 col-lg-5">
-          <h2><%= @cooperative.name %></h2>
+          <h1><%= @cooperative.name %></h1>
           <h3><%= @cooperative.short_description %></h3>
         </div>
       </div>
     </div>
   </div>
-  <iframe width="100%" height="700px" src="<%= @cooperative.video_url %>"></iframe>
+  <video width="100%" height="700px" src="<%= @cooperative.video_url %>" autoplay="true"></video>
 </div>
 
 <div id="icon-bar">
@@ -74,7 +57,7 @@
 
 <div id="idealizador">
   <p> <strong>Idealizador(a)</strong> </p>
-  <h1><i class="fa fa-user-circle" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;<%= @cooperative.founder.name %></h1>
+  <h2><i class="fa fa-user-circle" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;<%= @cooperative.founder.name %></h2>
 </div>
 
 <div id="objetivo" class="container">
@@ -166,7 +149,7 @@
 
 <script src="../assets/Chart.min.js"></script>
 <script>
-var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 		var config = {
 			type: 'line',
 			data: {
@@ -235,10 +218,17 @@ var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
 			}
 		};
 
-		window.onload = function() {
+		$(document).ready(function() {
 			var ctx = document.getElementById('myChart').getContext('2d');
 			window.myLine = new Chart(ctx, config);
-		};
+
+      if($("#notice").text()){
+        $("#notice").css("display", "block");
+        setTimeout(function(){
+          $("#notice").css("display", "none");
+        }, 3000);
+      }
+		});
 
     function randomScalingFactor(){
       return Math.floor((Math.random() * 1000) + 1);
