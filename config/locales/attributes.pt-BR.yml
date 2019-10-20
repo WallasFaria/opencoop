@@ -25,3 +25,10 @@ pt-BR:
     users: Usuarios
     segment: Segmento
     cost_per_transaction: Custo por transação
+    value_to_split: Valor a ser rateado
+    pre_assembly_date: Pré-assembléia
+    voting_date: Assembléia
+    optionl_1_name: Nome da proposta
+    optionl_2_name: Nome da Proposta
+    optionl_1_percent: Porcentagem
+    optionl_2_percent: Porcentagem

@@ -3,18 +3,30 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :value_to_split, as: :string, input_html: { class: 'money' } %>
 
+
+  <div id="assembleia" class="form-inputs row">
+    <div class="col-md-8 col-lg-8">
+      <%= f.input :value_to_split, as: :string, input_html: { class: 'money' } %>
+    </div>
+    <div class="col-md-12 col-lg-12">
+      <label><strong>Proposta de rateio das obras</strong></label>
+    </div>
     <%= f.simple_fields_for(:proposals) do |pf|
           render 'proposals/form_fields', f: pf
-        end %>
+    end %>
+    <div class="col-md-12 col-lg-12">
+      <label><strong>Data</strong></label>
+    </div>
+    <div class="col-md-6 col-lg-6 little_label">
+      <%= f.input :pre_assembly_date, as: :string, input_html: { class: 'date' } %>
+    </div>
+    <div class="col-md-6 col-lg-6 little_label">
+      <%= f.input :voting_date, as: :string, input_html: { class: 'date' } %>
+    </div>
 
-    <%= f.input :pre_assembly_date, as: :string, input_html: { class: 'date' } %>
-    <%= f.input :voting_date, as: :string, input_html: { class: 'date' } %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
+    <div class="form-actions col-md-12 col-lg-12">
+      <br><%= f.button :submit, class: 'btn btn-block btn-perfil' %>
+    </div>
   </div>
 <% end %>
