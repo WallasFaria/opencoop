@@ -21,7 +21,7 @@ class Cooperative < ApplicationRecord
   private
 
   def check_status
-    update(status: :foundation) if account >= value_minimum_to_start
+    update(status: :foundation) if account.balance >= value_minimum_to_start
   end
 
   def update_share_capital(cooperation)
