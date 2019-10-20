@@ -19,7 +19,7 @@ class CooperationsController < ApplicationController
   private
 
   def cooperation_params
-    { cooperative: @cooperation,
+    { cooperative: @cooperative,
       associate: current_associate,
       share_capital: @cooperative.value_minimum_to_start }
   end
