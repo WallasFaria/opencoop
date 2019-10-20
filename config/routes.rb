@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'transactions/index'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :cooperatives do
     resources :cooperations, only: [:new, :create]

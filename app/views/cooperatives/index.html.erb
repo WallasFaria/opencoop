@@ -8,8 +8,7 @@
       <tr>
         <th>Nome</th>
         <th>Segmento</th>
-        <th>Status</th>
-        <th colspan="3"></th>
+        <th colspan="4"></th>
       </tr>
     </thead>
 
@@ -18,8 +17,8 @@
         <tr>
           <td><%= cooperative.name %></td>
           <td><%= cooperative.segment_id %></td>
-          <td><%= cooperative.status %></td>
-          <td><%= link_to 'Ver', cooperative %></td>
+          <td><%= link_to 'Conta-Corrente', transactions_index_url %></td>
+          <td><%= link_to 'Visualizar Página', cooperative %></td>
           <td><%= link_to 'Editar', edit_cooperative_path(cooperative) %></td>
           <td><%= link_to 'Apagar', cooperative, method: :delete, data: { confirm: 'Deseja apagar esta cooperativa?' } %></td>
         </tr>
@@ -29,5 +28,5 @@
 
   <br>
 
-  <%= link_to 'Nova Cooperativa', new_cooperative_path %>
+  <%= link_to 'Nova Cooperativa', new_cooperative_path, {class: "btn btn-perfil"} %>
 </div>
