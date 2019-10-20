@@ -40,7 +40,7 @@ a:hover{
 }
 
 #top{
-  margin-top: 200px;
+  margin-top: 10px;
 }
 
 #top img{
@@ -51,7 +51,7 @@ a:hover{
   overflow: hidden;
   height: 500px;
   width: 100%;
-  margin-top: -80px;
+  position: relative;
 }
 
 #block-video{
@@ -61,7 +61,6 @@ a:hover{
   -webkit-box-shadow: inset -2px -200px 60px -60px rgba(0,0,0,0.5), inset -2px 300px 60px 0px rgba(0,0,0,0.5);
      -moz-box-shadow: inset -2px -200px 60px -60px rgba(0,0,0,0.5), inset -2px 300px 60px 0px rgba(0,0,0,0.5);
           box-shadow: inset -2px -200px 60px -60px rgba(0,0,0,0.5), inset -2px 300px 60px 0px rgba(0,0,0,0.5);
-  margin-top: -123px;
 }
 
 #block-video #conteudo{
@@ -112,7 +111,7 @@ a:hover{
   background-image: url("background.png");
   background-repeat: none;
   background-position: right;background-size: cover;
-  top: 750px;
+  top: 800px;
   right: 0;
 }
 
@@ -163,6 +162,7 @@ a:hover{
 .pagamento{
   margin-top: 50px;
   color: #707070;
+  margin-bottom: 20px;
 }
 
 .quadro_pagamento{
@@ -254,3 +254,9 @@ a:hover{
 .share-icons-single a:hover i{  
   color: #E0290B  
 } 
+
+#notice{
+  position: absolute;
+  z-index: 3000;
+  margin: 20px;
+}
