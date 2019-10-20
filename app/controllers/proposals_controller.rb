@@ -1,74 +1,56 @@
 class ProposalsController < ApplicationController
+  before_action :set_cooperative, :set_assembly
   before_action :set_proposal, only: [:show, :edit, :update, :destroy]
 
-  # GET /proposals
-  # GET /proposals.json
   def index
     @proposals = Proposal.all
   end
 
-  # GET /proposals/1
-  # GET /proposals/1.json
   def show
   end
 
-  # GET /proposals/new
   def new
     @proposal = Proposal.new
   end
 
-  # GET /proposals/1/edit
   def edit
   end
 
-  # POST /proposals
-  # POST /proposals.json
   def create
     @proposal = Proposal.new(proposal_params)
 
-    respond_to do |format|
-      if @proposal.save
-        format.html { redirect_to @proposal, notice: 'Proposal was successfully created.' }
-        format.json { render :show, status: :created, location: @proposal }
-      else
-        format.html { render :new }
-        format.json { render json: @proposal.errors, status: :unprocessable_entity }
-      end
-    end
+    render :new unless @proposal.save
   end
 
-  # PATCH/PUT /proposals/1
-  # PATCH/PUT /proposals/1.json
   def update
-    respond_to do |format|
-      if @proposal.update(proposal_params)
-        format.html { redirect_to @proposal, notice: 'Proposal was successfully updated.' }
-        format.json { render :show, status: :ok, location: @proposal }
-      else
-        format.html { render :edit }
-        format.json { render json: @proposal.errors, status: :unprocessable_entity }
-      end
-    end
+    render :new unless @proposal.update(proposal_params)
   end
 
-  # DELETE /proposals/1
-  # DELETE /proposals/1.json
   def destroy
     @proposal.destroy
-    respond_to do |format|
-      format.html { redirect_to proposals_url, notice: 'Proposal was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_proposal
-      @proposal = Proposal.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def proposal_params
-      params.require(:proposal).permit(:assembly_id, :owner_name, :optionl_1_name, :optionl_1_percent, :optionl_2_name, :optionl_2_percent, :total_votes)
-    end
+  def set_proposal
+    @proposal = @assembly.proposals.find(params[:id])
+  end
+
+  def set_cooperative
+    @cooperative = Cooperative.find(params[:cooperative_id])
+  end
+
+  def set_assembly
+    @assembly = @cooperative.assemblies.find(params[:assembly_id])
+  end
+
+  def proposal_params
+    params.require(:proposal).permit(
+      :owner_name,
+      :optionl_1_name,
+      :optionl_1_percent,
+      :optionl_2_name,
+      :optionl_2_percent
+    ).merge(assembly: @assembly, owner_name: current_associate.name)
+  end
 end

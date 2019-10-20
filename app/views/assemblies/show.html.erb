@@ -5,6 +5,8 @@
   <%= @assembly.value_to_split %>
 </p>
 
+<%= link_to 'Adicionar Proposta', new_cooperative_assembly_proposal_path(@cooperative, @assembly), remote: true %>
+
 <p>
   <strong>Pre assembly date:</strong>
   <%= @assembly.pre_assembly_date %>
