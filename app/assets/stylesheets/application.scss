@@ -146,10 +146,10 @@ a:hover{
   color: white;
 }
 
-.btn-gray, .gray-form .btn{
-  background-color: #4d4d4d;
-  color: #fff
-}
+// .btn-gray, .gray-form .btn{
+//   background-color: #4d4d4d;
+//   color: #fff
+// }
 
 .form-control{
   border-radius: 0
@@ -162,20 +162,59 @@ a:hover{
 
 .pagamento{
   margin-top: 50px;
+  color: #707070;
 }
 
 .quadro_pagamento{
-  padding: 30px;
-  -webkit-box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.75);
-  box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.75);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px 0;
 }
 
 .quadro_pagamento h5{
   margin-top: 10px;
 }
 
-.submit{
-  background-color: #4D4D4D;
-  color: white;
+.head-form{
+  background-color: #F5F5F5;
+  padding: 50px 130px;
+}
+
+#pagamento1{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: -10px;
+}
+
+#pagamento1 .item{
+  padding: 30px 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#pagamento1 .last{
+  border: 0;
+}
+
+#pagamento1 i{
+  float: right;
+  font-size: 40px;
+}
+
+#pagamento2{
+  background-color: #F5F5F5;
+  border-radius: 5px;
+}
+
+.nav{
+  height: 70px;
+}
+
+.navbar-brand{
+  width: 150px;
+  height: auto;
+  float: left;
+}
+
+.nav-item{
+  padding-top: 25px;
 }

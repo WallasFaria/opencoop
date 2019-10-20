@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
-  <li class="nav-item nav-link">
+  <img class="navbar-brand" src="<%= image_path 'Voe.png' %>" alt="Logomarca">
+  <li class="nav-item nav-link ml-auto">
   <%= link_to('Sair', destroy_user_session_path, method: :delete) %>
   </li>
 <% else %>
