@@ -23,6 +23,7 @@
     </div>
     <div class="col-md-4 col-lg-4">
       <%= f.input :development_time_in_days %>
+      <small class=small>&nbsp;Número de dias</small>
     </div>
     <div class="col-md-4 col-lg-4">
       <%= f.input :value_minimum_to_start, input_html: { class: 'money', type: 'text' }  %>
@@ -44,3 +45,23 @@
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  
+
+  $(document).ready(function(){
+    $("#cooperative_share_capital, #cooperative_minimum_of_associates").on('change, blur, focusout',function(){
+      var capital = $("#cooperative_share_capital").val();
+      var pessoas = $("#cooperative_minimum_of_associates").val();
+
+      console.log(capital);
+      console.log(pessoas);
+
+      if(!capital.length || !pessoas.length){
+        return;
+      }
+
+      $("#cooperative_value_minimum_to_start").val(parseFloat(capital) * parseFloat(pessoas));
+    });
+  })
+</script>
