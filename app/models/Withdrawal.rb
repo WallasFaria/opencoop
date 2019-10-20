@@ -7,7 +7,7 @@ class Withdrawal < Operation
   validate :available_account_balance
 
   def change_value
-    value
+    -1 * value
   end
 
   private

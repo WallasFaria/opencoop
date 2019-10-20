@@ -10,6 +10,6 @@ class Transaction < ApplicationRecord
   private
 
   def create_operation
-    account.operations.create(operable: self, value: value, type: 'Withdrawal')
+    account.operations.create(operable: self, value: value, type: 'Deposit')
   end
 end
