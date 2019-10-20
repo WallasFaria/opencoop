@@ -10,6 +10,20 @@ class Transaction < ApplicationRecord
   private
 
   def create_operation
-    account.operations.create(operable: self, value: value, type: 'Deposit')
+    remaining = apply_fees
+    account.operations.create(operable: self, value: remaining, type: 'Deposit')
+  end
+
+  def apply_fees
+    system_value = value * 0.02
+
+    cooperative = cooperation.cooperative
+    cooperative_value = value * (cooperative.cost_per_transaction / 100)
+    cooperative.account.operations.create(
+      operable: self,
+      value: cooperative_value,
+      type: 'Deposit'
+    )
+    value - system_value - cooperative_value
   end
 end
