@@ -19,6 +19,10 @@
 @import "devise";
 @import "Chart";
 
+body{
+  overflow-x: hidden;
+}
+
 .notice, .alert{
   display: none;
 }
@@ -58,9 +62,10 @@ a:hover{
   position: absolute;
   height: 100%;
   width: 100%;
-  -webkit-box-shadow: inset -2px -200px 60px -60px rgba(0,0,0,0.5), inset -2px 300px 60px 0px rgba(0,0,0,0.5);
-     -moz-box-shadow: inset -2px -200px 60px -60px rgba(0,0,0,0.5), inset -2px 300px 60px 0px rgba(0,0,0,0.5);
-          box-shadow: inset -2px -200px 60px -60px rgba(0,0,0,0.5), inset -2px 300px 60px 0px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset -2px -200px 60px -60px rgba(0,0,0,0.5), inset -2px 100px 60px 0px rgba(0,0,0,0.5);
+     -moz-box-shadow: inset -2px -200px 60px -60px rgba(0,0,0,0.5), inset -2px 100px 60px 0px rgba(0,0,0,0.5);
+          box-shadow: inset -2px -200px 60px -60px rgba(0,0,0,0.5), inset -2px 100px 60px 0px rgba(0,0,0,0.5);
+  z-index: 99;
 }
 
 #block-video #conteudo{
