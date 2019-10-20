@@ -6,6 +6,10 @@ class CooperationsController < ApplicationController
     redirext_if_cooperation_exists
   end
 
+  def show
+    @cooperation = @cooperative.cooperations.find(params[:id])
+  end
+
   def create
     @cooperation = Cooperation.new(cooperation_params)
 
@@ -19,7 +23,7 @@ class CooperationsController < ApplicationController
   private
 
   def cooperation_params
-    { cooperative: @cooperation,
+    { cooperative: @cooperative,
       associate: current_associate,
       share_capital: @cooperative.value_minimum_to_start }
   end

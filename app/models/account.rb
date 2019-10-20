@@ -8,8 +8,6 @@ class Account < ApplicationRecord
 
   protected
 
-  attr_writer :balance
-
   def update_balance(operation)
     self.balance = balance + operation.change_value
     save

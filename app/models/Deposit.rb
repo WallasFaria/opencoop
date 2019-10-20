@@ -6,6 +6,6 @@ class Deposit < Operation
   validates :value, numericality: { greater_than: 0 }
 
   def change_value
-    -1 * value
+    value
   end
 end

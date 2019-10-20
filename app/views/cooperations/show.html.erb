@@ -10,7 +10,7 @@
   		<div class="mb-3">
   			<h4>Saldo</h4>
   			<div class="saldo mt-4 mb-4">
-  				<p><span>R$</span> 00,00</p>
+  				<p><span>R$</span> <%= number_to_currency(@cooperation.account.balance, prefix: nil) %></p>
   			</div>
   		</div>
   		<div class="mt-4">
@@ -41,11 +41,11 @@
 		      </tr>
 		    </thead>
 		    <tbody>
-		      <% 4.times do %>
+		      <% @cooperation.transactions.each do |transaction| %>
 		      	<tr>
-		      		<td>18/10/2019</td>
-		      		<td>Compra</td>
-		      		<td>200,00</td>
+		      		<td><%= l transaction.created_at, format: :short %></td>
+		      		<td><%= transaction.description %></td>
+		      		<td><%= number_to_currency(transaction.value) %></td>
 		      	</tr>
 		      <% end %>
 		    </tbody>
