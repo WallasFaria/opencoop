@@ -206,12 +206,12 @@ a:hover{
 }
 
 .nav{
-  height: 70px;
+  overflow: hidden;
 }
 
 .navbar-brand{
   width: 150px;
-  height: auto;
+  height: 80px;
   float: left;
 }
 
@@ -236,21 +236,21 @@ a:hover{
 }
 
 
-.white-txt a:hover{ 
-  text-decoration: none;  
-  color: lightgray  
-} 
+.white-txt a:hover{
+  text-decoration: none;
+  color: lightgray
+}
 
-.share-icons-single a{  
-  margin-right: 15px; 
-  margin-left: 15px;  
-  cursor: pointer;  
-} 
+.share-icons-single a{
+  margin-right: 15px;
+  margin-left: 15px;
+  cursor: pointer;
+}
 
-.share-icons-single a i{  
-  color: #f84901; 
-} 
+.share-icons-single a i{
+  color: #f84901;
+}
 
-.share-icons-single a:hover i{  
-  color: #E0290B  
-} 
+.share-icons-single a:hover i{
+  color: #E0290B
+}
