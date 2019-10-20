@@ -1,25 +1,25 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
+
+<div class="head-form">
+  <h1>CONTA CORRENTE</h1>
+</div>
 
 <div class="container">
-	<div class="mt-4 mb-4">
-  	<h2>Conta-Corrente</h2>
-  </div>
-
   <div class="row">
   	<div class="col-md-4 transacoes-info">
   		<div class="mb-3">
-  			<h4>Saldo</h4>
-  			<div class="saldo mt-4 mb-4">
-  				<p><span>R$</span> <%= number_to_currency(@cooperation.account.balance, prefix: nil) %></p>
+  			<p id="saldo_title">&nbsp;&nbsp;Saldo</p>
+  			<div class="saldo mt-4 mb-4 text-center">
+  				<h1> <%= number_to_currency(@cooperation.account.balance, prefix: nil) %></h1>
   			</div>
   		</div>
   		<div class="mt-4">
-  			<h4>Quantidade de transações</h4>
+
   			<table class="table table-striped">
   				<thead>
 			      <tr>
-			        <th>Data</th>
-			        <th>Quantidade</th>
+			        <th>Quantidade de transações</th>
+			        <th></th>
 			      </tr>
 			    </thead>
 			    <tbody>

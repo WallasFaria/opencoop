@@ -2,45 +2,56 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-<div class="container pagamento">
-  <div class="offset-md-3 offset-lg-3 col-md-6 col-lg-6">
-    <h1>Detalhes do Pagamento</h1>
-
-    <div class="quadro_pagamento">
-      <div class="row">
-        <div class="col-md-6 col-lg-6">
-         <h5>Valor do pagamento</h5>
-        </div>
-
-        <div class="col-md-6 col-lg-6 text-right">
-          <h1><%= number_to_currency @cooperative.share_capital %></h1>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-inputs row">
-      <div class="col-md-12 col-lg-12">
-        <label for="numero">Número do cartão</label>
-        <input type="text" name="numero" class="form-control" minlength="16" required>
-      </div>
-      <div class="col-md-12 col-lg-12">
-        <label for="numero">Nome do títular</label>
-        <input type="text" name="nome" class="form-control" required>
-      </div>
-      <div class="col-md-6 col-lg-6">
-        <label for="numero">Validade</label>
-        <input type="text" name="validade" class="form-control" required>
-      </div>
-      <div class="col-md-6 col-lg-6">
-        <label for="numero">Cód. de segurança</label>
-        <input type="text" name="seguranca" class="form-control" required>
-      </div>
-
-      <div class="form-actions col-md-12 col-lg-12">
-        <button type="submit" class="btn btn-block submit" name="button">Salvar</button>
-      </div>
-    </div>
+  <div class="head-form">
+    <h1>DETALHES DO PAGAMENTO</h1>
   </div>
 
+<div class="container pagamento">
+  <div class="row">
+    <div id="pagamento1" class="col-md-3 col-lg-3">
+      <div class="col-md-12 col-lg-12 item">
+        <h5>Cartão de Crédito <i style="color: #F0C41B" class="fa fa-credit-card-alt" aria-hidden="true"></i> </h5>
+      </div>
+      <div class="col-md-12 col-lg-12 item">
+        <h5>Cartão de Débito <i style="color: #CCB375" class="fa fa-credit-card-alt" aria-hidden="true"></i> </h5>
+      </div>
+      <div class="col-md-12 col-lg-12 item">
+        <h5>Boleto Bancário <i class="fa fa-barcode" aria-hidden="true"></i> </h5>
+      </div>
+      <div class="col-md-12 col-lg-12 item last">
+        <h5>Paypal <i style="color: #417694" class="fa fa-cc-paypal" aria-hidden="true"></i> </h5>
+      </div>
+    </div>
+
+    <div id="pagamento2" class="col-md-4 col-lg-4 offset-md-1 offset-lg-1">
+      <div class="form-inputs row">
+        <div class="col-md-12 col-lg-12">
+          <label for="numero">Número do cartão</label>
+          <input type="text" name="numero" class="form-control" minlength="16" required>
+        </div>
+        <div class="col-md-12 col-lg-12">
+          <label for="numero">Nome do títular</label>
+          <input type="text" name="nome" class="form-control" required>
+        </div>
+        <div class="col-md-6 col-lg-6">
+          <label for="numero">Validade</label>
+          <input type="text" name="validade" class="form-control" required>
+        </div>
+        <div class="col-md-6 col-lg-6">
+          <label for="numero">Cód. de segurança</label>
+          <input type="text" name="seguranca" class="form-control" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-lg-3 offset-md-1 offset-lg-1">
+      <h5>Valor do pagamento</h5>
+      <div class="quadro_pagamento text-center">
+        <h1><%= number_to_currency @cooperative.share_capital %></h1>
+      </div>
+
+      <button type="submit" class="btn btn-block btn-perfil" name="button">Salvar</button>
+    </div>
+  </div>
 </div>
 <% end %>
