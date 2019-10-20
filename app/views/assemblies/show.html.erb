@@ -13,12 +13,11 @@
 
   <div class="offset-md-8 offset-lg-8 col-md-2 col-lg-2">
     <div class="form-actions col-md-12 col-lg-12">
-      <!-- <%= if(@proposal.)
-      end%> -->
-      <br><%= f.button, class: 'btn btn-block btn-danger', value: "ADICIONAR PROPOSTA" %>
+      <br>
     </div>
   </div>
 
+  <%= @assembly.proposals.each do |proposal| %>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -29,34 +28,19 @@
     </thead>
     <tbody>
       <tr>
-        <td><%= @proposal.optionl_1_name %></td>
-        <td><%= @proposal.owner_name %></td>
-        <td><%= @proposal.optionl_1_percent %></td>
+        <td><%= proposal.optionl_1_name %></td>
+        <td><%= proposal.owner_name %></td>
+        <td><%= proposal.optionl_1_percent %></td>
       </tr>
       <tr>
-        <td><%= @proposal.optionl_2_name %></td>
-        <td><%= @proposal.owner_name %></td>
-        <td><%= @proposal.optionl_2_percent %></td>
+        <td><%= proposal.optionl_2_name %></td>
+        <td><%= proposal.owner_name %></td>
+        <td><%= proposal.optionl_2_percent %></td>
       </tr>
     </tbody>
   </table>
+  <% end %>
 </div>
-<!-- <p>
-  <strong>Value to split:</strong>
-
-</p>
-
-<%= link_to 'Adicionar Proposta', new_cooperative_assembly_proposal_path(@cooperative, @assembly), remote: true %>
-
-<p>
-  <strong>Pre assembly date:</strong>
-  <%= @assembly.pre_assembly_date %>
-</p>
-
-<p>
-  <strong>Voting date:</strong>
-  <%= @assembly.voting_date %>
-</p> -->
 
 <%= link_to 'Edit', edit_cooperative_assembly_path(@cooperative, @assembly) %> |
 <%= link_to 'Back', cooperative_assemblies_path(@cooperative) %>
