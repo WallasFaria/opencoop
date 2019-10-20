@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<div class="top">
+<!-- <div class="top">
   <div class="container">
     <div class="row">
-      
-      
+
+
       <div class="col-md-6 col-lg-6">
         <img src="<%= image_path 'Voe.png' %>" alt="Logomarca">
       </div>
@@ -13,14 +13,25 @@
         <%= link_to 'QUERO ME ASSOCIAR', new_cooperative_cooperation_path(@cooperative),
                     class: 'btn btn-light btn-perfil' %>
       </div>
-
-      <!-- <%= render 'devise/menu/login_items' %> -->
     </div>
   </div>
-</div>
+</div> -->
 
 <div id="video">
+
   <div id="block-video">
+    <div id='top' class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-6">
+          <img src="<%= image_path 'Voe.png' %>" alt="Logomarca">
+        </div>
+
+        <div class="col-md-6 col-lg-6 text-right">
+          <%= link_to 'QUERO ME ASSOCIAR', new_cooperative_cooperation_path(@cooperative),
+                      class: 'btn btn-light btn-perfil' %>
+        </div>
+     </div>
+    </div>
     <div id="conteudo" class="container">
       <div class="row">
         <div class="offset-md-1 offset-lg-1 col-md-5 col-lg-5">
@@ -30,27 +41,33 @@
       </div>
     </div>
   </div>
-  <iframe width="100%" height="600px" src="<%= @cooperative.video_url %>"></iframe>
+  <iframe width="100%" height="700px" src="<%= @cooperative.video_url %>"></iframe>
 </div>
 
 <div id="icon-bar">
   <div class="row">
-    <div class="col-md-4 col-lg-4 text-center">
+    <div class="col-md-3 col-lg-3 text-center">
       <h2><i class="fa fa-users" aria-hidden="true"></i></h2>
       <p>ASSOCIADOS</p>
       <h3>05</h3>
     </div>
 
-    <div class="col-md-4 col-lg-4 text-center">
+    <div class="col-md-3 col-lg-3 text-center">
       <h2><i class="fa fa-money" aria-hidden="true"></i></h2>
       <p>ARRECADADO</p>
       <h3>2.700,00</h3>
     </div>
 
-    <div class="col-md-4 col-lg-4 text-center">
+    <div class="col-md-3 col-lg-3 text-center">
       <h2><i class="fa fa-handshake-o" aria-hidden="true"></i></h2>
       <p>QUOTA-PARTES</p>
-      <h3><%= @cooperative.share_capital %></h3>
+      <h3><%= number_to_currency @cooperative.share_capital %></h3>
+    </div>
+
+    <div class="col-md-3 col-lg-3 text-center">
+      <h2><i class="fa fa-thermometer-quarter" aria-hidden="true"></i></h2>
+      <p>STATUS</p>
+      <h3><%= @cooperative.status %></h3>
     </div>
   </div>
 </div>
@@ -61,10 +78,17 @@
 </div>
 
 <div id="objetivo" class="container">
+  <!-- <div id="background">
+
+  </div> -->
   <div class="row">
     <div class="col-md-9 col-lg-9">
       <h3>Objetivo</h3>
       <p class="text-justify"><%= @cooperative.description %></p>
+    </div>
+
+    <div id="background">
+
     </div>
   </div>
 
@@ -81,7 +105,7 @@
 
     <div class="col-md-2 col-lg-2">
       <p> <strong>Custo da fundação</strong> </p>
-      <p>R$<%= @cooperative.value_minimum_to_start %></p>
+      <p><%= number_to_currency @cooperative.value_minimum_to_start %></p>
     </div>
 
     <div class="col-md-3 col-lg-3">
