@@ -3,3 +3,11 @@ pt-BR:
     errors:
       messages:
         insufficient_balance: Saldo insuficiente
+
+  project: Em projeto
+  foundation: Em desenvolvimento
+  working: Em funcionamento
+  scheduled: Agendada
+  open_to_proposals: Aberta para propostas
+  open_to_vates: Aberta para votação
+  closed: Encerrada
