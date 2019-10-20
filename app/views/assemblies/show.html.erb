@@ -1,8 +1,49 @@
 <p id="notice"><%= notice %></p>
+<div class="head-form">
+  <h1>ASSEMBLEIA</h1>
+</div>
 
-<p>
+<div class="container">
+  <div class="col-md-2 col-lg-2 text-center">
+    <p> <strong>Valor do Rateio</strong> </p>
+    <div class="quadro_pagamento">
+      <h3><%= @assembly.value_to_split %></h3>
+    </div>
+  </div>
+
+  <div class="offset-md-8 offset-lg-8 col-md-2 col-lg-2">
+    <div class="form-actions col-md-12 col-lg-12">
+      <!-- <%= if(@proposal.)
+      end%> -->
+      <br><%= f.button, class: 'btn btn-block btn-danger', value: "ADICIONAR PROPOSTA" %>
+    </div>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Proposta</th>
+        <th>Responsável</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @proposal.optionl_1_name %></td>
+        <td><%= @proposal.owner_name %></td>
+        <td><%= @proposal.optionl_1_percent %></td>
+      </tr>
+      <tr>
+        <td><%= @proposal.optionl_2_name %></td>
+        <td><%= @proposal.owner_name %></td>
+        <td><%= @proposal.optionl_2_percent %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- <p>
   <strong>Value to split:</strong>
-  <%= @assembly.value_to_split %>
+
 </p>
 
 <p>
@@ -13,7 +54,7 @@
 <p>
   <strong>Voting date:</strong>
   <%= @assembly.voting_date %>
-</p>
+</p> -->
 
 <%= link_to 'Edit', edit_cooperative_assembly_path(@cooperative, @assembly) %> |
 <%= link_to 'Back', cooperative_assemblies_path(@cooperative) %>
