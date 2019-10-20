@@ -14,8 +14,8 @@ class Cooperative < ApplicationRecord
             :value_minimum_to_start,
             presence: true
 
-  before_create :handler_video_url
-  after_create :set_default_status, :add_account
+  before_create :handler_video_url, :set_default_status
+  after_create :add_account
   after_update :check_status
 
   private

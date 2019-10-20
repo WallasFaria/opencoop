@@ -6,6 +6,10 @@ class CooperationsController < ApplicationController
     redirext_if_cooperation_exists
   end
 
+  def show
+    @cooperation = @cooperative.cooperations.find(params[:id])
+  end
+
   def create
     @cooperation = Cooperation.new(cooperation_params)
 

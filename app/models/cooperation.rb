@@ -1,6 +1,7 @@
 class Cooperation < ApplicationRecord
   belongs_to :cooperative
   belongs_to :associate
+  has_many :transactions
 
   has_one :account, as: :owner
 

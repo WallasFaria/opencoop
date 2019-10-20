@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   resources :cooperatives do
-    resources :cooperations, only: [:new, :create]
+    resources :cooperations, only: [:new, :create, :show]
   end
 
   namespace :api do
