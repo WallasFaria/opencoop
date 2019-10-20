@@ -3,7 +3,8 @@ class CooperativesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   def index
-    @cooperatives = current_associate.cooperatives
+    @cooperatives = Cooperative.joins(:cooperations)
+      .where('cooperations.associate_id = ?', current_associate.id)
   end
 
   def show
