@@ -234,3 +234,23 @@ a:hover{
   font-weight: bold;
   font-size: 16px;
 }
+
+
+.white-txt a:hover{ 
+  text-decoration: none;  
+  color: lightgray  
+} 
+
+.share-icons-single a{  
+  margin-right: 15px; 
+  margin-left: 15px;  
+  cursor: pointer;  
+} 
+
+.share-icons-single a i{  
+  color: #f84901; 
+} 
+
+.share-icons-single a:hover i{  
+  color: #E0290B  
+} 
