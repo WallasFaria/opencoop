@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Dependencias
 
-Things you may want to cover:
+- ruby 2.6.1
+- postgresql
 
-* Ruby version
+### Instalar e rodar
 
-* System dependencies
+```
+git clone git@github.com:WallasFaria/opencoop.git
 
-* Configuration
+cd opencoop
 
-* Database creation
+bundle install
 
-* Database initialization
+yarn
 
-* How to run the test suite
+rails db:setup
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+rails s
+```
