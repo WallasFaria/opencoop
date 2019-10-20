@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   resources :cooperatives do
     resources :cooperations, only: [:new, :create, :show]
+    resources :assemblies do
+      resources :proposals
+    end
   end
 
   namespace :api do

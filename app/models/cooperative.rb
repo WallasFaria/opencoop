@@ -5,6 +5,7 @@ class Cooperative < ApplicationRecord
   belongs_to :segment
   belongs_to :founder, class_name: 'Associate'
   has_many :cooperations, after_add: :update_share_capital
+  has_many :assemblies
   has_one :account, as: :owner
 
   validates :description,

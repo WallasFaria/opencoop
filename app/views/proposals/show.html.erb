@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Assembly:</strong>
+  <%= @proposal.assembly_id %>
+</p>
+
+<p>
+  <strong>Onwer name:</strong>
+  <%= @proposal.owner_name %>
+</p>
+
+<p>
+  <strong>Optionl 1 name:</strong>
+  <%= @proposal.optionl_1_name %>
+</p>
+
+<p>
+  <strong>Optionl 1 percent:</strong>
+  <%= @proposal.optionl_1_percent %>
+</p>
+
+<p>
+  <strong>Optionl 2 name:</strong>
+  <%= @proposal.optionl_2_name %>
+</p>
+
+<p>
+  <strong>Optionl 2 percent:</strong>
+  <%= @proposal.optionl_2_percent %>
+</p>
+
+<p>
+  <strong>Total votes:</strong>
+  <%= @proposal.total_votes %>
+</p>
+
+<%= link_to 'Edit', edit_proposal_path(@proposal) %> |
+<%= link_to 'Back', proposals_path %>

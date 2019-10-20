@@ -1,0 +1,11 @@
+
+<%= simple_form_for(@proposal) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <%= render 'form_fields', f: f %>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

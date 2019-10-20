@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_19_222307) do
+ActiveRecord::Schema.define(version: 2019_10_20_131015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 2019_10_19_222307) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id"
+  end
+
+  create_table "assemblies", force: :cascade do |t|
+    t.decimal "value_to_split", precision: 20, scale: 2
+    t.date "pre_assembly_date"
+    t.date "voting_date"
+    t.bigint "cooperative_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cooperative_id"], name: "index_assemblies_on_cooperative_id"
   end
 
   create_table "associates", force: :cascade do |t|
@@ -92,6 +102,19 @@ ActiveRecord::Schema.define(version: 2019_10_19_222307) do
     t.index ["operable_type", "operable_id"], name: "index_operations_on_operable_type_and_operable_id"
   end
 
+  create_table "proposals", force: :cascade do |t|
+    t.bigint "assembly_id", null: false
+    t.string "owner_name"
+    t.string "optionl_1_name"
+    t.decimal "optionl_1_percent", precision: 5, scale: 2
+    t.string "optionl_2_name"
+    t.decimal "optionl_2_percent", precision: 5, scale: 2
+    t.integer "total_votes", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["assembly_id"], name: "index_proposals_on_assembly_id"
+  end
+
   create_table "segments", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -125,5 +148,6 @@ ActiveRecord::Schema.define(version: 2019_10_19_222307) do
   add_foreign_key "cooperations", "cooperatives"
   add_foreign_key "cooperatives", "segments"
   add_foreign_key "operations", "accounts"
+  add_foreign_key "proposals", "assemblies"
   add_foreign_key "transactions", "cooperations"
 end

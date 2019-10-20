@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Value to split:</strong>
+  <%= @assembly.value_to_split %>
+</p>
+
+<p>
+  <strong>Pre assembly date:</strong>
+  <%= @assembly.pre_assembly_date %>
+</p>
+
+<p>
+  <strong>Voting date:</strong>
+  <%= @assembly.voting_date %>
+</p>
+
+<%= link_to 'Edit', edit_cooperative_assembly_path(@cooperative, @assembly) %> |
+<%= link_to 'Back', cooperative_assemblies_path(@cooperative) %>

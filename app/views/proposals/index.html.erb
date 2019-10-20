@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Proposals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Assembly</th>
+      <th>Onwer name</th>
+      <th>Optionl 1 name</th>
+      <th>Optionl 1 percent</th>
+      <th>Optionl 2 name</th>
+      <th>Optionl 2 percent</th>
+      <th>Total votes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @proposals.each do |proposal| %>
+      <tr>
+        <td><%= proposal.assembly_id %></td>
+        <td><%= proposal.owner_name %></td>
+        <td><%= proposal.optionl_1_name %></td>
+        <td><%= proposal.optionl_1_percent %></td>
+        <td><%= proposal.optionl_2_name %></td>
+        <td><%= proposal.optionl_2_percent %></td>
+        <td><%= proposal.total_votes %></td>
+        <td><%= link_to 'Show', proposal %></td>
+        <td><%= link_to 'Edit', edit_proposal_path(proposal) %></td>
+        <td><%= link_to 'Destroy', proposal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Proposal', new_proposal_path %>

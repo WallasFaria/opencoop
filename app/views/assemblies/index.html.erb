@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Assemblies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value to split</th>
+      <th>Pre assembly date</th>
+      <th>Voting date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assemblies.each do |assembly| %>
+      <tr>
+        <td><%= assembly.value_to_split %></td>
+        <td><%= assembly.pre_assembly_date %></td>
+        <td><%= assembly.voting_date %></td>
+        <td><%= link_to 'Show', [@cooperative, assembly] %></td>
+        <td><%= link_to 'Edit', edit_cooperative_assembly_path(@cooperative, assembly) %></td>
+        <td><%= link_to 'Destroy', assembly, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Assembly', new_cooperative_assembly_path(@cooperative) %>
