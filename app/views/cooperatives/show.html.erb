@@ -139,19 +139,19 @@
 
     $("#share-fb").on('click', function(e){
       e.preventDefault();
-      window.open('http://www.facebook.com/sharer.php?u=' +url + '&t=' + name,'popup','width=600,height=600');
+      window.open('http://www.facebook.com/sharer.php?u=' +url + '&t=Apoie essa ideia! ' + name,'popup','width=600,height=600');
       return false;
     });
 
     $("#twitter").on('click', function(e){
       e.preventDefault();
-      window.open('http://twitter.com/share?text=' + encodeURI(name) + '&url=' + encodeURI(url),'popup','width=600,height=600');
+      window.open('http://twitter.com/share?text=Apoie essa ideia! ' + encodeURI(name) + '&url=' + encodeURI(url),'popup','width=600,height=600');
       return false;
     });
 
     $("#whats").on('click', function(e){
       e.preventDefault();
-      window.open('http://api.whatsapp.com/send?text=' + name +' - ' + url,'popup','width=600,height=600');
+      window.open('http://api.whatsapp.com/send?text=Apoie essa ideia! ' + name +' - ' + url,'popup','width=600,height=600');
       return false;
     })
 
